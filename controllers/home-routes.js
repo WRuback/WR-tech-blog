@@ -9,15 +9,18 @@ router.get('/', async (req, res) => {
 
 // get single post
 router.get('/post/:id', async (req, res) => {
- 
+    const dummy = {test: 24}
+    res.render("single-post", dummy);
 });
 
 router.get('/login', (req, res) => {
-
+    const dummy = {test: 24}
+    res.render("login", dummy);
 });
 
 router.get('/signup', (req, res) => {
- 
+    const dummy = {test: 24}
+    res.render("signup", dummy);
 });
 
 module.exports = router;
