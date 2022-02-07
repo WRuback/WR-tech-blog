@@ -3,7 +3,8 @@ const { Post, Comment, User } = require('../models');
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
-  
+    const dummy = {test: 24}
+    res.render("all-posts", dummy);
 });
 
 // get single post

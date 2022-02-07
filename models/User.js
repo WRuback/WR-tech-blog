@@ -1,7 +1,7 @@
 // What do we need to require here?
 const bcrypt = require('bcrypt');
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/config.js')
+const sequelize = require('../config/config.js');
 
 // create our User model
 class User extends Model {
