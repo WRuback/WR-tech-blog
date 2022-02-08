@@ -1,24 +1,9 @@
-{{!-- {{#each posts as |post|}} --}}
+{{#each posts as |post|}}
 <div class="card">
     <div class="card-header flex-row justify-space-between align-center">
-        <h2>How Crazy by toby123</h2>
-        <p>Posted by toby123 on 5/8/2022</p>
+        <h2>{{title}}</h2>
+        <p>Posted by {{username}} on {{format_date created_at}}</p>
     </div>
-    <P class="card-body">Words, Words, wrods. Holy crap this assignment is nuts beyond belief.</P>
+    <P class="card-body">{{body}}</P>
 </div>
-
-<div class="card">
-    <div class="card-header flex-row justify-space-between align-center">
-        <h2>How Crazy by toby123</h2>
-        <p>Posted by toby123 on 5/8/2022</p>
-    </div>
-    <P class="card-body">Words, Words, wrods. Holy crap this assignment is nuts beyond belief.</P>
-</div>
-<div class="card">
-    <div class="card-header flex-row justify-space-between align-center">
-        <h2>How Crazy by toby123</h2>
-        <p>Posted by toby123 on 5/8/2022</p>
-    </div>
-    <P class="card-body">Words, Words, wrods. Holy crap this assignment is nuts beyond belief.</P>
-</div>
-{{!-- {{/each}} --}}
+{{/each}}

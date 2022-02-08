@@ -20,6 +20,7 @@ router.post('/login', async (req, res) => {
 
     if(!userData){
       res.status(400).json({message: 'Invalid Username!'});
+      console.log('Invalid Username!');
       return;
     }
 
@@ -27,13 +28,17 @@ router.post('/login', async (req, res) => {
 
     if(!validPassword){
       res.status(400).json({message: 'Invalid Password!'});
+      console.log('Invalid Password!');
       return;
     }
 
     req.session.save(function() {
       req.session.user_id = userData.id;
       req.session.loggedIn = true;
+      console.log(req.session.loggedIn);
+      res.status(200).json(userData);
     });
+    console.log(req.session.loggedIn);
   }catch(err){
     res.status(400).json(err);
   }
