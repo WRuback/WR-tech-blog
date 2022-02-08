@@ -1,15 +1,42 @@
 <div class="card">
-    <a href="post/{{id}}">
+    <a href="post/{{post.id}}">
         <div class="card-header flex-row justify-space-between align-center">
-            <h2>{{title}}</h2>
-            <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
+            <h2>{{post.title}}</h2>
+            <p>Posted by {{post.user.username}} on {{format_date post.createdAt}}</p>
         </div>
     </a>
     <P class="card-body">{{body}}</P>
 </div>
 
+{{#each post.comments as |newComment|}}
 <div class="card">
-    <h6 class="">toby123</h6>
-    <P class="card-body">Words, Words, wrods. Holy crap this assignment is nuts beyond belief.</P>
+    <h6 class="card-header"></h6>
+    <div class="card-body">
+        <p>{{body}}</p>
+        <p>-From {{user.username}} at {{format_date createdAt}}</p>
+    </div>
 </div>
+{{/each}}
+
+{{#if user_id}}
+<div class="card">
+    <h3 class="card-header">Add Comment</h3>
+    <div class="card-body">
+        <form class="form login-form" id="new-comment-form">
+            <div class="form-group">
+                <label for="password-login"></label>
+                <textarea class="form-input" name="comment-body" id="password-login" rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <script src="/js/comment.js"></script>
+{{else}}
+<div class="flex-row justify-center">
+    <p>Login to add a comment!</p>
+</div>
+{{/if}}

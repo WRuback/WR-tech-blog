@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Post = require('../models/Post.js');
+const User = require('../models/User');
 const withAuth = require('../utils/auth.js');
 //Require the correct files from the models and authorizations
 
@@ -10,9 +11,11 @@ router.get('/', withAuth, async (req, res) => {
       user_id: req.session.user_id
     }
   });
+  const userData = await User.findByPk(req.session.user_id);
   const posts = postData.map(Element => Element.get({ plain: true }));
+  const user = userData.get({ plain: true});
   console.log(posts);
-  res.render("user-landing", { posts });
+  res.render("user-landing", { posts, user });
 });
 
 router.get('/new', withAuth, (req, res) => {
