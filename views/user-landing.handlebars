@@ -1,0 +1,11 @@
+<ul class="list-group">
+    {{#each posts as |post|}}
+    <a href="/dashboard/edit/{{id}}">
+        <li class="list-item">{{title}}</li>
+    </a>
+    {{/each}}
+</ul>
+
+<footer class = "footer flex-row justify-center">
+    <a href="/dashboard/new" >+ New Post</a>
+</footer>

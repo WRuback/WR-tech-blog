@@ -1,6 +1,11 @@
 <div class="card">
-    <h2 class="card-header">How Crazy by toby123</h2>
-    <P class="card-body">Words, Words, wrods. Holy crap this assignment is nuts beyond belief.</P>
+    <a href="post/{{id}}">
+        <div class="card-header flex-row justify-space-between align-center">
+            <h2>{{title}}</h2>
+            <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
+        </div>
+    </a>
+    <P class="card-body">{{body}}</P>
 </div>
 
 <div class="card">
