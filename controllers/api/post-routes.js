@@ -1,4 +1,5 @@
 const { Post } = require('../../models');
+const withAuth = require('../../utils/auth.js');
 
 const router = require('express').Router();
 //Require the correct files from the models and authorizations

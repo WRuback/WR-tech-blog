@@ -4,13 +4,13 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
-const sequelize = require('./config/connection');
+const sequelize = require('./config/config.js');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // Need a functionality do we need here?
 const hbs = exphbs.create({ helpers });
 
@@ -36,5 +36,5 @@ app.use(require('./controllers'));
 
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
-  //sequelize.sync({ force: false });
+  sequelize.sync({ force: false });
 });
