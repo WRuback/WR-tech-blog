@@ -5,7 +5,7 @@
             <p>Posted by {{post.user.username}} on {{format_date post.createdAt}}</p>
         </div>
     </a>
-    <P class="card-body">{{body}}</P>
+    <P class="card-body">{{post.body}}</P>
 </div>
 
 {{#each post.comments as |newComment|}}
