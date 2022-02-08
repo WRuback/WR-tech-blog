@@ -5,26 +5,26 @@ const withAuth = require('../utils/auth.js');
 
 router.get('/', withAuth, async (req, res) => {
   //Create the correct asychronous get route for this function
-    const postData = await Post.findAll({
-      where: {
-        user_id: req.session.user_id
-      }
-    });
-    const posts = postData.map(Element => Element.get({ plain: true}));
-    console.log(posts);
-    res.render("user-landing", {posts});
+  const postData = await Post.findAll({
+    where: {
+      user_id: req.session.user_id
+    }
+  });
+  const posts = postData.map(Element => Element.get({ plain: true }));
+  console.log(posts);
+  res.render("user-landing", { posts });
 });
 
 router.get('/new', withAuth, (req, res) => {
   // Create the correct get route
-  const dummy = {test: 24, layout: 'dashboard'}
-  res.render("new-post", dummy);
+  res.render("new-post");
 });
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   // Create the correct get route functionality using an asychronous function
-  const dummy = {test: 24, layout: 'dashboard'}
-  res.render("edit-post", dummy);
+  const postData = await Post.findByPk(req.params.id);
+  const post = postData.get({ plain: true });
+  res.render("edit-post", post);
 });
 
 module.exports = router;

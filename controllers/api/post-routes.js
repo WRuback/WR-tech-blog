@@ -6,14 +6,12 @@ const router = require('express').Router();
 
 router.post('/', withAuth, async (req, res) => {
   //Complete the asychronous function with error handling
-  console.log("WingyDing!");
   try {
     const postData = await Post.create({
       title: req.body.title,
       body: req.body.body,
       user_id: req.session.user_id
     });
-    console.log("WingyDing!");
     //console.log(postData);
     res.status(200).json(postData);
   } catch (error) {
@@ -25,8 +23,8 @@ router.put('/:id', withAuth, async (req, res) => {
   //Complete the asychronous function with error handling
   try {
     const postData = Post.update({
+      title: req.body.title,
       body: req.body.body,
-      user_id: req.session.user_id
     },{
       where:{
         id: req.params.id

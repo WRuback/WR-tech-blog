@@ -1,4 +1,4 @@
-const postId = document.querySelector('input[name="post-id"]').value;
+const postId = document.location.href.split('/')[document.location.href.split('/').length - 1];
 
 const editFormHandler = async function(event) {
   event.preventDefault();
