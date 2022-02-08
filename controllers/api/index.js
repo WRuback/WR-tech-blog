@@ -7,7 +7,7 @@ const userRoutes = require('./user-routes.js');
 //Create the router.use functionality for each required file
 
 router.use("/comment",commentRoutes);
-router.use("/post",commentRoutes);
+router.use("/post",postRoutes);
 router.use("/user",userRoutes);
 
 module.exports = router;

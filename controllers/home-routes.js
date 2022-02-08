@@ -3,14 +3,15 @@ const { Post, Comment, User } = require('../models');
 
 // get all posts for homepage
 router.get('/', async (req, res) => {
-    const postData = Post.findAll({
+    const postData = await Post.findAll({
         include: [{model: User}]
     });
+    console.log(postData);
     const posts = postData.map(element => {
-        element.get({ plain: true });
+        return element.get({ plain: true });
     });
     console.log(posts);
-    res.render("all-posts", posts);
+    res.render("all-posts", {posts});
 });
 
 // get single post

@@ -6,12 +6,16 @@ const router = require('express').Router();
 
 router.post('/', withAuth, async (req, res) => {
   //Complete the asychronous function with error handling
+  console.log("WingyDing!");
   try {
-    const postData = Post.create({
+    const postData = await Post.create({
+      title: req.body.title,
       body: req.body.body,
       user_id: req.session.user_id
     });
-    res.status(200).json("postData");
+    console.log("WingyDing!");
+    //console.log(postData);
+    res.status(200).json(postData);
   } catch (error) {
     res.status(400).json("Could not make post.")
   }
@@ -44,9 +48,6 @@ router.delete('/:id', withAuth, async (req, res) => {
   //Complete the asychronous function with error handling
   try {
     const postData = Post.destroy({
-      body: req.body.body,
-      user_id: req.session.user_id
-    },{
       where:{
         id: req.params.id
       }
