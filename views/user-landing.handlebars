@@ -4,7 +4,7 @@
 <ul class="list-group">
     {{#each posts as |post|}}
     <a href="/dashboard/edit/{{id}}">
-        <li class="list-item">{{title}}</li>
+        <li class="list-item">{{title}} - {{format_date createdAt}}</li>
     </a>
     {{/each}}
 </ul>
