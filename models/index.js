@@ -1,5 +1,3 @@
-
-//What do we need to require for this document?
 const User = require('./User.js');
 const Comment = require('./Comment.js');
 const Post = require('./Post.js');
@@ -17,7 +15,6 @@ Post.hasMany(Comment, {
   foreignKey: "post_id",
   onDelete: "CASCADE"
 });
-
 
 Post.belongsTo(User, {
   foreignKey: "user_id"

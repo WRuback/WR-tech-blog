@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-//Create the api routes and require them to use them within the controllers
-
+// Import the routes.
 const homeRoutes = require('./home-routes.js');
 const dashboardRoutes = require('./dashboard-routes.js');
 const apiRoutes = require('./api/index.js');
 
+// Link to the router.
 router.use(homeRoutes);
 router.use('/dashboard/', dashboardRoutes);
 router.use('/api', apiRoutes);

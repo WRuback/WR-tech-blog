@@ -1,11 +1,9 @@
-// What needs to be required?
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config.js');
 
 class Comment extends Model {}
 
 Comment.init(
-  // Fill in the missing data
   {
     id: {
       type: DataTypes.INTEGER,
@@ -30,6 +28,7 @@ Comment.init(
         model: 'post',
         key: 'id',
       },
+      onDelete: "CASCADE"
     },
   },
   {

@@ -2,10 +2,8 @@ const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth.js');
 
-//Require the correct files from the models and authorizations
-
+// Creates the comment, linking it to the user and the post with ID's.
 router.post('/', withAuth, async (req, res) => {
-  // Complete the asynchronous function for router.post
   try {
     const commentData = await Comment.create({
       body: req.body.body,

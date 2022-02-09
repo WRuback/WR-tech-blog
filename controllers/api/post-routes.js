@@ -1,11 +1,11 @@
 const { Post } = require('../../models');
+// Used to check if the User is logged in.
 const withAuth = require('../../utils/auth.js');
 
 const router = require('express').Router();
-//Require the correct files from the models and authorizations
 
+// Creates a post, with the user linked via ID.
 router.post('/', withAuth, async (req, res) => {
-  //Complete the asychronous function with error handling
   try {
     const postData = await Post.create({
       title: req.body.title,
@@ -19,8 +19,8 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// Update's post information.
 router.put('/:id', withAuth, async (req, res) => {
-  //Complete the asychronous function with error handling
   try {
     const postData = Post.update({
       title: req.body.title,
@@ -42,8 +42,8 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
+// Removes posts.
 router.delete('/:id', withAuth, async (req, res) => {
-  //Complete the asychronous function with error handling
   try {
     const postData = Post.destroy({
       where:{

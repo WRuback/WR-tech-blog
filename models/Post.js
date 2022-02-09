@@ -1,11 +1,9 @@
-// What are we missing to be required here?
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/config.js');
 
 class Post extends Model { }
 
 Post.init(
-  // Finish the post expression
   {
     id: {
       type: DataTypes.INTEGER,

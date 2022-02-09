@@ -1,10 +1,8 @@
 const router = require('express').Router();
-//Require the correct files from the models
 const { Post, Comment, User } = require('../../models');
 
-
+// Creates a nw user.
 router.post('/', async (req, res) => {
-  // Create the correct asychronous function for this login post request with error handling
   try {
     const UserData = await User.create(req.body);
     res.status(200).json(UserData);
@@ -13,8 +11,8 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Checks the username and password given, and logs in the user.
 router.post('/login', async (req, res) => {
-  // Create the correct asychronous function for this login post request with error handling
   try{
     const userData = await User.findOne({where: {username: req.body.username}});
 
@@ -31,7 +29,7 @@ router.post('/login', async (req, res) => {
       console.log('Invalid Password!');
       return;
     }
-
+    // Save the user Id and the Login information 
     req.session.save(function() {
       req.session.user_id = userData.id;
       req.session.loggedIn = true;
@@ -44,8 +42,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Deletes the session, thus removing the login information.
 router.post('/logout', (req, res) => {
-  // Create the correct functionality for this post request with error handling
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
