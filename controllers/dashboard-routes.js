@@ -14,17 +14,18 @@ router.get('/', withAuth, async (req, res) => {
   const posts = postData.map(Element => Element.get({ plain: true }));
   const user = userData.get({ plain: true});
   console.log(posts);
-  res.render("user-landing", { posts, user });
+  res.render("user-landing", { posts, user, layout: "dashboard" });
 });
 
 router.get('/new', withAuth, (req, res) => {
-  res.render("new-post");
+  res.render("new-post", {layout: "dashboard"});
 });
 
 router.get('/edit/:id', withAuth, async (req, res) => {
   // Gets the post from the idea to put onto the webpage.
   const postData = await Post.findByPk(req.params.id);
   const post = postData.get({ plain: true });
+  post.layout = "dashboard";
   res.render("edit-post", post);
 });
 
