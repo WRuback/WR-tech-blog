@@ -28,7 +28,7 @@ A project for my bootcamp to create a simple tech blog framework that is based o
 - Express
 - Express-Sessions
 - Sequelize
-- -bcrypt
+- bcrypt
 
 ## Deployment
 
