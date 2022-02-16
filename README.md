@@ -22,6 +22,13 @@
 
 A project for my bootcamp to create a simple tech blog framework that is based on the MVC design pattern. The site lets users sign up, make blog posts, edit them, and comment on there own or other's posts. All of the blog posts and user information are saved using a MYSQL database, and interacted with by sequelize. The user's login information is also saved via sessions and cookies.
 
+# Used Tech
+
+- NodeJS
+- Express
+- Express-Sessions
+- Sequelize
+
 ## Deployment
 
 [See the Heroku deployment of this project here.](https://wr-tech-blog.herokuapp.com/)
